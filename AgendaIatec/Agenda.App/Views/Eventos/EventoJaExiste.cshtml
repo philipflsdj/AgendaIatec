@@ -1,0 +1,14 @@
+﻿@model Agenda.App.Models.Evento
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_DashbordLayout.cshtml"; 
+}
+
+<h1>Evento não pode ser criado</h1>
+<h2>Um evento exclusivo já existe nessa data</h2>
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

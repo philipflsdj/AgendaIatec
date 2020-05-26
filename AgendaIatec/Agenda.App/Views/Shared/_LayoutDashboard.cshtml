@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Simple Sidebar - Start Bootstrap Template</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="~/css/simple-sidebar.css" rel="stylesheet">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Agenda.App</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/datatable/css/datatable.min.css" />
+
+</head>
+<body>
+
+
+    <div class="d-flex" id="wrapper">
+
+        <!-- Sidebar -->
+        <div class="bg-light border-right" id="sidebar-wrapper">
+            <div class="sidebar-heading">
+                <span class="navbar-logo">
+                    <a asp-area="" asp-controller="Home" asp-action="Index">
+                        <img src="~/images/iasd-60x60.png" alt="Mobirise" title="" style="height: 3.8rem;">
+                    </a>
+                </span>
+            </div>
+            <div class="list-group list-group-flush">
+                <a href="#" class="list-group-item list-group-item-action bg-light">Dashboard</a>
+                <a href="#" class="list-group-item list-group-item-action bg-light">Shortcuts</a>
+                <a href="#" class="list-group-item list-group-item-action bg-light">Overview</a>
+                <a href="#" class="list-group-item list-group-item-action bg-light">Events</a>
+                <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
+                <a href="#" class="list-group-item list-group-item-action bg-light">Status</a>
+            </div>
+        </div>
+        <!-- /#sidebar-wrapper -->
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                <button class="btn btn-light" id="menu-toggle">Menu lateral</button>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                        <partial name="_LoginPartial" />
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="container-fluid">
+                <div class="container">
+                    <main role="main" class="pb-3">
+                        @RenderBody()
+                    </main>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+    <!-- Bootstrap core JavaScript -->
+
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2020 - Agenda.App - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+
+        $("#menu-toggle").click(function (e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+        $(document).ready(function () {
+    $('#dataTable').DataTable();
+});
+
+    </script>
+    @RenderSection("Scripts", required: false)
+    <script src="~/datatable/js/datatable.jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+﻿@model Agenda.App.Models.Evento
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_DashbordLayout.cshtml"; 
+}
+
+<h1>Edit</h1>
+
+<h4>Evento</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Nome" class="control-label"></label>
+                <input asp-for="Nome" class="form-control" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Descricao" class="control-label"></label>
+                <textarea asp-for="Descricao" class="form-control"></textarea>
+                <span asp-validation-for="Descricao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DtInicial" class="control-label"></label>
+                <input asp-for="DtInicial" class="form-control" />
+                <span asp-validation-for="DtInicial" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DtFinal" class="control-label"></label>
+                <input asp-for="DtFinal" class="form-control" />
+                <span asp-validation-for="DtFinal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StatusEvento" class="control-label"></label>
+                <input asp-for="StatusEvento" class="form-control" />
+                <span asp-validation-for="StatusEvento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EnderecoId" class="control-label"></label>
+                <select asp-for="EnderecoId" class="form-control" asp-items="ViewBag.EnderecoId"></select>
+                <span asp-validation-for="EnderecoId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TipoEventoId" class="control-label"></label>
+                <select asp-for="TipoEventoId" class="form-control" asp-items="ViewBag.TipoEventoId"></select>
+                <span asp-validation-for="TipoEventoId" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Agenda.App.Models.Agendar>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_DashbordLayout.cshtml";
+
+}
+
+<h1>@ViewData["Title"]</h1>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+
+<table class="table" id="dataTable">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Evento.StatusEvento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Evento.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Evento.DtInicial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Evento.DtFinal)
+            </th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Evento.StatusEvento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Evento.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Evento.DtInicial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Evento.DtFinal)
+            </td>
+
+            <td><a class="btn btn-outline-info" asp-action="Details" asp-route-id="@item.Id"><span class="fas fa-search"></span></a></td>
+            <td><a class="btn btn-outline-warning" asp-action="Edit" asp-route-id="@item.Id"><span class="fa fa-pen"></span></a></td>
+            <td><a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.Id"><span class="fa fa-trash"></span></a></td>
+        </tr>
+        }
+    </tbody>
+</table>
+
